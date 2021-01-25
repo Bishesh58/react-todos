@@ -1,10 +1,15 @@
 import React from 'react';
 import './Todos.css';
+import './FormTodo';
+import './Todo';
+import FormTodo from './FormTodo';
+import Todo from './Todo';
 
 function Todos() {
     return (
         <div className="todos">
-            <h1>Print todos here</h1>
+            <FormTodo />
+            <Todo />
         </div>
     )
 }
