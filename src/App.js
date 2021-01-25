@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import Sidebar from './Components/Sidebar';
-import Taskbar from './Components/Taskbar';
+import Sidebar from './components/Sidebar';
+import Taskbar from './components/Taskbar';
 
 
 function App() {
