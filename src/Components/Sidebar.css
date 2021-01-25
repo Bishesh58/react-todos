@@ -1,0 +1,10 @@
+.sidebar{
+    flex: 0.3;
+    width: 30vw;
+    background-color: gray;
+}
+
+.sidebar__header{
+    height: 200px;
+    background-color: teal;
+}
