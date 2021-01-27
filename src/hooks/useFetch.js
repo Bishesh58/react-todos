@@ -7,7 +7,6 @@ const useFetch =(url)=>{
     const[data, setData] = useState([]);
     const[isLoading, setIsLoading] = useState(true);
 
-
     useEffect(() => {
         fetch(url)
         .then((res)=>{

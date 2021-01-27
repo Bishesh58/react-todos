@@ -12,6 +12,7 @@ function Quotes() {
     
     const generateNewQuote = e =>{
         e.preventDefault()
+        //logic
     }
 
     return (
