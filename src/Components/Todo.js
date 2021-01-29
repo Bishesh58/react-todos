@@ -1,14 +1,18 @@
 import React from 'react';
+import { useRecoilValue } from 'recoil';
+import { todoListState } from '../atoms/todoListState';
 import './Todo.css';
 
 function Todo() {
+
+     //useRecoilValue --> if we want to use it's state value directly, 
+    const todoList = useRecoilValue(todoListState);
+    
     return (
         <div className='todo'>
-            <li>This is task 1</li><button>Edit</button><button>Delete</button>
-            <li>This is task 1</li><button>Edit</button><button>Delete</button>
-            <li>This is task 1</li><button>Edit</button><button>Delete</button>
-            <li>This is task 1</li><button>Edit</button><button>Delete</button>
-            <li>This is task 1</li><button>Edit</button><button>Delete</button>
+            {todoList.map((item) =>{
+              return  <li key={item.id}>{item.text}</li>
+            })}
             
         </div>
        

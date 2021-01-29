@@ -2,16 +2,21 @@ import React, { useState } from 'react';
 import './TodoList.css';
 import './Todo';
 import Todo from './Todo';
-import { useRecoilValue } from 'recoil';
-import { todosState } from '../atoms/todosState';
+import { v4 as uuid } from 'uuid';
+
+import { todoListState } from '../atoms/todoListState';
+import { useRecoilState } from 'recoil';
 
 function TodoList() {
 
     const [input, setInput] = useState('');
-
+    const [todoList, setTodoList] = useRecoilState(todoListState)
     const addTodo =(e)=>{
         e.preventDefault();
-
+        setTodoList([{
+            text: input,
+            id: uuid(),
+        }, ...todoList])
         setInput("");
     }
    
@@ -30,7 +35,8 @@ function TodoList() {
                     >Add</button>
                 </form>
         </div>
-            <Todo />
+
+        <Todo />
         </div>
     )
 }
