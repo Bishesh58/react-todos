@@ -11,9 +11,8 @@ function Todo() {
     return (
         <div className='todo'>
             {todoList.map((item) =>{
-              return  <li key={item.id}>{item.text}</li>
+              return <li key={item.id}>{item.text}</li>
             })}
-            
         </div>
        
     )

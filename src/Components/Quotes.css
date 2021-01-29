@@ -1,7 +1,16 @@
 .quotes {
+    flex: 0.1;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    height: 80px;
-    background-color: teal;
+    justify-content: space-between;
+    padding: 4px;
+    text-align: center;
+}
+
+.quotes__title {
+    margin: auto;
+}
+.quotes__title > h2 {
+    font-size: 1rem;
+    flex: 1;
 }

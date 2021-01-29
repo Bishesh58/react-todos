@@ -1,4 +1,5 @@
 .taskbar {
-    flex: 0.7;
-    background-color: wheat;
+    flex: 0.8;
+    display: flex;
+    flex-direction: column;
 }

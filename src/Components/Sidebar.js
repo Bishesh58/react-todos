@@ -12,12 +12,15 @@ function Sidebar() {
     return (
         <div className="sidebar">
             <div className="sidebar__header">
-                <Avatar/>
+                <div className="sidebar__header--avatar" >
+                 <Avatar style={{ height: '70px', width: '70px' }}
+                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEhj9ZDdqcAYnGUeraY8oiRFjqUv0n5dsJGA&usqp=CAU"
+                 />
+                </div>
+                <p>Bishesh</p>
             </div>
-           
             <div className="sidebar__body">
-                <p>Notes</p>
-                <p>Links</p>
+               
             </div>
         </div>
     )

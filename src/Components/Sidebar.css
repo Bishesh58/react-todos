@@ -1,10 +1,29 @@
 .sidebar{
-    flex: 0.3;
+    flex: 0.2;
     width: 30vw;
-    background-color: gray;
+    min-width: 15vw;
+    display: flex;
+    flex-direction: column;
+   
 }
 
 .sidebar__header{
-    height: 200px;
-    background-color: rgb(146, 175, 175);
+    flex: 0.1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    position: relative;
+}
+
+.sidebar__header--avatar {
+    padding: 3px;
+    border-radius: 50%;
+    background: #9ccac2;
+    margin-bottom: 15px;
+}
+
+.sidebar__body{
+    flex: 0.9;
 }

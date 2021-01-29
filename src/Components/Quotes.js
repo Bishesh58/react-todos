@@ -20,7 +20,7 @@ function Quotes() {
             {isLoading ? (
                 <p>Loading..</p>
             ):(
-                <div>
+                <div className="quotes__title">
                 <h2>{`"${quote?.text}"`}</h2>
                 <p>{`- ${quote?.author} `}</p>
                </div>
