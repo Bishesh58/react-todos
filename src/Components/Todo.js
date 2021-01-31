@@ -12,12 +12,12 @@ import FlipMove from "react-flip-move";
 const Todo = forwardRef(({todoList}, ref) => {
   return (
     <div ref={ref} className="todo">
-       <FlipMove >
+       <FlipMove>
         {todoList.map((item) => {
           return (
              <div key={item.id} className="todo__container">
                 <RadioButton />
-                <li >{item.text}</li>
+                <li>{item.text}</li>
                 <IconButton>
                     <Edit />
                 </IconButton>
