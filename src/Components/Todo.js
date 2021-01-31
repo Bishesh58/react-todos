@@ -1,24 +1,37 @@
-import React from 'react';
-import { useRecoilValue } from 'recoil';
-import { todoListState } from '../atoms/todoListState';
-import './Todo.css';
+import React, { forwardRef } from "react";
+import { useRecoilValue } from "recoil";
+import { todoListState } from "../atoms/todoListState";
+import "./Todo.css";
+import IconButton from "@material-ui/core/IconButton";
+import { Delete, Edit } from "@material-ui/icons";
+import RadioButton from "@material-ui/core/Radio";
+import FlipMove from "react-flip-move";
 
-function Todo() {
 
-     //useRecoilValue --> if we want to use it's state value directly, 
-    const todoList = useRecoilValue(todoListState);
-    
-    return (
-        <div className='todo'>
-            {todoList.map((item) =>{
-             
-            return  <li 
-              className="todo__container"
-              key={item.id}>{item.text}</li>
-            })}
-        </div>
-       
-    )
-}
 
-export default Todo
+const Todo = forwardRef(({todoList}, ref) => {
+  return (
+    <div ref={ref} className="todo">
+       <FlipMove >
+        {todoList.map((item) => {
+          return (
+             <div key={item.id} className="todo__container">
+                <RadioButton />
+                <li >{item.text}</li>
+                <IconButton>
+                    <Edit />
+                </IconButton>
+                <IconButton>
+                    <Delete />
+                </IconButton>
+            </div>
+           
+          );
+        })}
+       </FlipMove>
+    </div>
+  );
+})
+
+
+export default Todo;

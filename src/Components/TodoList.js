@@ -49,7 +49,7 @@ function TodoList() {
                 </form>
             </div>
 
-          <Todo />
+          <Todo todoList={todoList}/>
         </div>
     )
 }

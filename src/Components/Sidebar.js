@@ -20,7 +20,6 @@ function Sidebar() {
                 <p>Bishesh</p>
             </div>
             <div className="sidebar__body">
-               
             </div>
         </div>
     )

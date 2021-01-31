@@ -6,11 +6,12 @@ import * as serviceWorker from './serviceWorker';
 import { RecoilRoot } from 'recoil';
 
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <RecoilRoot>
       <App />
     </RecoilRoot>
-  </React.StrictMode>,
+  // </React.StrictMode>
+  ,
   document.getElementById('root')
 );
 
