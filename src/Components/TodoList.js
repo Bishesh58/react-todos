@@ -6,6 +6,9 @@ import { v4 as uuid } from 'uuid';
 
 import { todoListState } from '../atoms/todoListState';
 import { useRecoilState } from 'recoil';
+import { Button } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
+import IconButton from '@material-ui/core/IconButton';
 
 function TodoList() {
 
@@ -14,6 +17,7 @@ function TodoList() {
 
     const addTodo =(e)=>{
         e.preventDefault();
+
         if(!input.trim()) return;
         setTodoList([{
             text: input,
@@ -26,22 +30,26 @@ function TodoList() {
     return (
         <div className="todoList">
             <div className="todoList__form">
-                <form>
+                <form >
                     <input
                     autoFocus 
                     value={input}
                     onChange={e => setInput(e.target.value)}
                     type="text"
-                    placeholder="Enter your task"
+                    placeholder="What needs to be done?"
                     />
-                    <button
+                    <IconButton
                     // disabled={!input.trim()}
                     onClick={addTodo}
-                    >Add</button>
-                </form>
-        </div>
+                    type="submit"
+                    >
+                    <AddIcon />
 
-        <Todo />
+                    </IconButton>
+                </form>
+            </div>
+
+          <Todo />
         </div>
     )
 }

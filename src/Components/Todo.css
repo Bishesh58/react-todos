@@ -1,6 +1,22 @@
 .todo {
-    
+  padding: 10px;
+ display: flex;
+ flex-direction: column;
+ width: 100%;
+  
 }
+
+.todo__container {
+  text-overflow: ellipsis;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  background: linear-gradient(to right top, #65dfc9, #6cdbed);
+  
+}
+
 li {
-    text-overflow: ellipsis;
+  list-style: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

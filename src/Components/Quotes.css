@@ -11,6 +11,7 @@
     margin: auto;
 }
 .quotes__title > h2 {
+    
     font-size: 1rem;
     flex: 1;
 }
