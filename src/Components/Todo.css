@@ -1,5 +1,4 @@
 .todo {
-  padding: 10px;
  display: flex;
  flex-direction: column;
  width: 100%;
@@ -17,9 +16,12 @@
   
 }
 
-.todo__container >li {
+.todo__container > input {
   flex: 1;
-  list-style: none;
-  overflow: hidden;
+  overflow: hidden; 
   text-overflow: ellipsis;
+  outline: none;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
 }

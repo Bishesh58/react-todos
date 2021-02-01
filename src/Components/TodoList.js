@@ -3,12 +3,11 @@ import "./TodoList.css";
 import "./Todo";
 import Todo from "./Todo";
 import { v4 as uuid } from "uuid";
-
 import { todoListState } from "../atoms/todoListState";
 import { useRecoilState } from "recoil";
-import { Button } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import IconButton from "@material-ui/core/IconButton";
+import FlipMove from "react-flip-move";
 
 function TodoList() {
   const [input, setInput] = useState("");
@@ -16,20 +15,20 @@ function TodoList() {
 
   //set storage
   useEffect(() => {
-     if(todoList.length){
-         localStorage.setItem("todoListStorage", JSON.stringify(todoList));
-     }
-  }, [todoList])
+    if (todoList.length) {
+      localStorage.setItem("todoListStorage", JSON.stringify(todoList));
+    }
+  }, [todoList]);
 
   //get storage
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("todoListStorage"));
-    if(data){
-        setTodoList([...data])
+    if (data) {
+      setTodoList([...data]);
     }
-  }, [])
+  }, []);
 
-
+  //add new todo
   const addTodo = (e) => {
     e.preventDefault();
 
@@ -65,8 +64,14 @@ function TodoList() {
           </IconButton>
         </form>
       </div>
-
-      <Todo todoList={todoList} />
+      <div className="todoList__todo">
+      <FlipMove>
+        {todoList.map((todoItem) => (
+          <Todo key={todoItem.id} item={todoItem} />
+        ))}
+      </FlipMove>
+      </div>
+     
     </div>
   );
 }

@@ -1,37 +1,44 @@
 import React, { forwardRef } from "react";
-import { useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import { todoListState } from "../atoms/todoListState";
 import "./Todo.css";
 import IconButton from "@material-ui/core/IconButton";
 import { Delete, Edit } from "@material-ui/icons";
 import RadioButton from "@material-ui/core/Radio";
-import FlipMove from "react-flip-move";
 
 
+const Todo = forwardRef(({ item }, ref) => {
 
-const Todo = forwardRef(({todoList}, ref) => {
+  const [list, setlist] = useRecoilState(todoListState);
+  const index = list.findIndex((listItem) => listItem.item === item);
+
+  //delete todo
+  const deleteTodo = () => {};
+  //edit todo
+  const editTodo = (e) => {
+    // const targetValue = e.target.value;
+    // const newList = replaceItemAtIndex(list, index, {
+    //   ...todoList,
+    //   text: targetValue,
+    // });
+    // setlist(newList);
+  };
+
   return (
     <div ref={ref} className="todo">
-       <FlipMove>
-        {todoList.map((item) => {
-          return (
-             <div key={item.id} className="todo__container">
-                <RadioButton />
-                <li>{item.text}</li>
-                <IconButton>
-                    <Edit />
-                </IconButton>
-                <IconButton>
-                    <Delete />
-                </IconButton>
-            </div>
-           
-          );
-        })}
-       </FlipMove>
+        <div className="todo__container">
+          <RadioButton />
+          <input type="text" value={item.text} onChange={editTodo} />
+          <IconButton onClick={editTodo}>
+            <Edit />
+          </IconButton>
+          <IconButton onClick={deleteTodo}>
+            <Delete />
+          </IconButton>
+        </div>
+     
     </div>
   );
-})
-
+});
 
 export default Todo;
