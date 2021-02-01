@@ -25,3 +25,8 @@
   background: transparent;
   font-size: 1rem;
 }
+
+.lineThrough {
+  text-decoration: line-through;
+  text-decoration-color: rgb(52, 52, 216);
+}

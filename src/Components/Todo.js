@@ -4,7 +4,7 @@ import { todoListState } from "../atoms/todoListState";
 import "./Todo.css";
 import IconButton from "@material-ui/core/IconButton";
 import { Delete, Check } from "@material-ui/icons";
-import RadioButton from "@material-ui/core/Radio";
+import Checkbox from "@material-ui/core/Checkbox";
 
 
 const Todo = forwardRef(({ item }, ref) => {
@@ -17,7 +17,7 @@ const Todo = forwardRef(({ item }, ref) => {
     const newList = removeItemAtIndex(list, index);
     setlist(newList);
   };
-  
+
   //edit todo
   const editTodo = ({ target: { value } }) => {
     const newList = replaceItemAtIndex(list, index, {
@@ -38,12 +38,19 @@ const Todo = forwardRef(({ item }, ref) => {
     return [...arr.slice(0, index), ...arr.slice(index + 1)];
   }
 
+  const toggleComplete =()=>{
+    const newList = replaceItemAtIndex(list, index, {
+      ...item,
+      completed: !item.completed,
+    });
+    setlist(newList);
+  }
 
   return (
     <div ref={ref} className="todo">
         <div className="todo__container">
-          <RadioButton />
-          <input type="text" value={item.text} onChange={editTodo} />
+          <Checkbox color="primary" checked={item.completed} onChange={toggleComplete}/>
+          <input className={item.completed?"lineThrough":null} type="text" value={item.text} onChange={editTodo} />
           <IconButton >
             <Check />
           </IconButton>
