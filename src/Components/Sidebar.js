@@ -3,7 +3,9 @@ import React from 'react';
 import { useRecoilValue } from 'recoil';
 import { userState } from '../atoms/userState';
 import './Sidebar.css';
-
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
+import TodoListStats from './TodoListStats';
 
 function Sidebar() {
 
@@ -20,6 +22,7 @@ function Sidebar() {
                 <p>Bishesh</p>
             </div>
             <div className="sidebar__body">
+                <TodoListStats />
             </div>
         </div>
     )
