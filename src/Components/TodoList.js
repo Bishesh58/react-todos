@@ -4,14 +4,20 @@ import "./Todo";
 import Todo from "./Todo";
 import { v4 as uuid } from "uuid";
 import { todoListState } from "../atoms/todoListState";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import AddIcon from "@material-ui/icons/Add";
 import IconButton from "@material-ui/core/IconButton";
 import FlipMove from "react-flip-move";
+import { filteredTodoListState, todoListFilterState } from "../atoms/todoListFilterState";
 
 function TodoList() {
   const [input, setInput] = useState("");
-  const [todoList, setTodoList] = useRecoilState(todoListState);
+
+  // const [todoList, setTodoList] = useRecoilState(todoListState);
+  //we need to use useSetRecoil to set the values, cannot use useRecoilState for that
+  const todoList = useRecoilValue(filteredTodoListState);
+  const setTodoList = useSetRecoilState(todoListState);
+
 
   //set storage
   useEffect(() => {

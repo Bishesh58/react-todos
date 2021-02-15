@@ -6,6 +6,7 @@ import './Sidebar.css';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import TodoListStats from './TodoListStats';
+import TodoListFilters from './TodoListFilters';
 
 function Sidebar() {
 
@@ -23,6 +24,7 @@ function Sidebar() {
             </div>
             <div className="sidebar__body">
                 <TodoListStats />
+                <TodoListFilters />
             </div>
         </div>
     )
