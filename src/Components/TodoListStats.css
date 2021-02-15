@@ -1,3 +1,9 @@
 .todoListStats {
     padding: 2.1rem;
 }
+
+@media only screen and (max-device-width: 480px) {
+    .todoListStats{
+        padding: 0px;
+    }
+}
