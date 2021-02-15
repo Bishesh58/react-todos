@@ -1,0 +1,10 @@
+.todoListFilters{
+   padding: 10px;
+}
+
+.todoListFilters > select {
+    border-radius: 5px;
+    outline: none;
+    padding: 3px;
+    font-size: 1.2rem;
+}
