@@ -8,7 +8,10 @@ import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import AddIcon from "@material-ui/icons/Add";
 import IconButton from "@material-ui/core/IconButton";
 import FlipMove from "react-flip-move";
-import { filteredTodoListState, todoListFilterState } from "../atoms/todoListFilterState";
+import {
+  filteredTodoListState,
+  todoListFilterState,
+} from "../atoms/todoListFilterState";
 
 function TodoList() {
   const [input, setInput] = useState("");
@@ -17,7 +20,6 @@ function TodoList() {
   //we need to use useSetRecoil to set the values, cannot use useRecoilState for that
   const todoList = useRecoilValue(filteredTodoListState);
   const setTodoList = useSetRecoilState(todoListState);
-
 
   //set storage
   useEffect(() => {
@@ -41,7 +43,7 @@ function TodoList() {
     if (!input.trim()) return;
     setTodoList([
       {
-        text: input,
+        text: capitalizeInput(input),
         id: uuid(),
         completed: false,
       },
@@ -50,6 +52,11 @@ function TodoList() {
     setInput("");
   };
 
+  //capitalize the first letter
+  const capitalizeInput = (str) => {
+    if (typeof str !== "string") return "";
+    return str[0].toUpperCase() + str.slice(1);
+  };
   return (
     <div className="todoList">
       <div className="todoList__form">
@@ -71,13 +78,12 @@ function TodoList() {
         </form>
       </div>
       <div className="todoList__todo">
-      <FlipMove>
-        {todoList.map((todoItem) => (
-          <Todo key={todoItem.id} item={todoItem} />
-        ))}
-      </FlipMove>
+        <FlipMove>
+          {todoList.map((todoItem) => (
+            <Todo key={todoItem.id} item={todoItem} />
+          ))}
+        </FlipMove>
       </div>
-     
     </div>
   );
 }
